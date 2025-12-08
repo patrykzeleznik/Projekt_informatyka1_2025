@@ -1,0 +1,13 @@
+
+all: clean build
+
+.PHONY: all build clean
+
+build:
+	g++ -c main.cpp -I"C:\Nowy folder\SFML-2.6.1\include" -DSFML_STATIC
+	g++ main.o -o sfml-app.exe -L"C:\Nowy folder\SFML-2.6.1\lib" -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lfreetype -lwinmm -lgdi32 -mwindows -lsfml-main
+
+clean:
+	-@cmd /C del /Q "main.o" "sfml-app.exe" >nul 2>nul
+	-@rm -f main.o sfml-app.exe 2>nul
+
